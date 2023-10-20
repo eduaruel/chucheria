@@ -60,20 +60,19 @@ switch (opcion) {
 		if (clave === 'Tec') {
 			cambio = prompt('indique la chucheria  que quiere cambiar');
 			let reemplazar = prompt('Coloque el dulce a cambiar ');
-			console.log(cambio);
+			//console.log(cambio);
 			let indexArr = chucheria.findIndex((i) => i.Nombre == cambio);
-			console.log(indexArr);
+			//console.log(indexArr);
 			reemplazarChucherias = chucheria[indexArr].Nombre = reemplazar;
-			let nuevaChucheria = chucheria.splice(indexArr, 1, reemplazarChucherias);
-			nuevaChucheria.filter((i) => i.Nombre);
-			chucheria.push(nuevaChucheria);
+			console.log(reemplazarChucherias, chucheria);
 			let mostrarChucheria = document.createElement('p');
 			mostrarChucheria.textContent = `Se elimino ${cambio} de la maquina de dulce y se agrego ${reemplazar}`;
 			contenedorChu.appendChild(mostrarChucheria);
-			let chucheriaNuv = document.createElement('p');
-			chucheriaNuv.innerHTML = `${chucheria}`;
-			console.log(chucheriaNuv.Nombre);
-			contenedorChu.appendChild(chucheriaNuv);
+			chucheria.forEach((i) => {
+				const chu = document.createElement('p');
+				chu.innerHTML = `${i.Nombre} - Precio $${i.precio}`;
+				contenedorChu.appendChild(chu);
+			});
 		} else {
 			console.log('contraseña invalida');
 			const mostrar = document.querySelector('#resultado');
